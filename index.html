@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+     <script src="assets/js/script.js" rel="script"></script>   
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+  </head>
+  <body> </div>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="row w-100 m-0">
+          <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+            <div class="card col-lg-4 mx-auto">
+              <div class="card-body px-5 py-5">
+                  <form action="login.html" method="get" id="form" onsubmit="return handleSubmit(event)">                
+                    <label for="Area">Area (sqft)</label>
+                    <input type="number" name="area" class="form-control" id="area" placeholder="Area" required><br>
+                    <label for="floors">No of floors</label>
+                    <input type="number" name="floors" class="form-control" id="totalFloors" placeholder="Floors"><br>
+                    <h3 class="card-title text-left mb-3">How do you want to use it?</h3>
+                    <input type="radio" name="userChoice" value="industory" onchange="showFormChange()" checked>
+                    <label for="userChoice">Industory inputs</label><br>
+                    <input type="radio" name="userChoice" value="custom" onchange="showFormChange()">
+                    <label for="userChoice">Custom inputs</label><br>
+                    <input type="radio" name="userChoice" value="both" onchange="showFormChange()">
+                    <label for="userChoice">Both inputs</label><br>
+
+                    <div id="industorySection" style="display:block;">
+                    <input type="submit" class="form-control" id="industoryInput" placeholder="Industory Input">
+                    </div>
+                    <br>
+                    <br>
+                    <div id="customSection" style="display:none;">
+                    <label for="sand_price">Sand Price /(lorry)</label>
+                    <input class="form-control" type="number" id="sand_price" name="sand_price"><br>
+                    <label for="cement_price">Cement Price (no of bag)</label>
+                    <input class="form-control" type="number" id="cement_price" name="cement_price"> <br>
+                    <label for="aggrigate_price">Aggrigate price (per kg)</label>
+                    <input class="form-control" type="number" id="aggrigate_price" name="aggrigate_price"><br>
+                    <button type="submit" class="form-control" id="customInput">Custom Input</button>
+                 
+                  </form>
+                 </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- row ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>    
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  
+<script>
+
+
+  document.getElementById("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    localStorage.setItem("area", event.target.area.value);
+    localStorage.setItem("floors", event.target.floors.value);
+
+    // GET AND SAVE THE CHOICE HERE
+    const selectedChoice = document.querySelector('input[name="userChoice"]:checked').value;
+    localStorage.setItem("choice", selectedChoice);
+
+    window.location.href = "login.html";
+  })
+function showFormChange() {
+  const selected = document.querySelector('input[name="userChoice"]:checked').value;
+
+  if (selected === "industory") {
+    document.getElementById("customSection").style.display = "none";
+    document.getElementById("industorySection").style.display = "block";
+  } 
+  else if (selected === "custom") {
+    document.getElementById("customSection").style.display = "block";
+    document.getElementById("industorySection").style.display = "none";
+  } 
+  else if (selected === "both") {
+    document.getElementById("customSection").style.display = "block";
+    document.getElementById("industorySection").style.display = "none";
+  }
+}
+</script>
+  </body>
+</html>   
