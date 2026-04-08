@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("cement_used").innerText = "Cement bags : " + cementBags;
     document.getElementById("sand_used").innerText = "Sand cft : "+ sandCft;
     console.log(document.getElementById("sand_used").innerText);
-    document.getElementById("crush_used").innerText = "Crush cft : "+ crushCft;
+    document.getElementById("crush_used").innerText = "No of bricks : "+ bricks;
     document.getElementById("bricks_shown").innerText =  bricks + " PKR";
     document.getElementById("labour_used").innerText =  labourCosts+ " PKR"
     
