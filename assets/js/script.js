@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-
+  // Calculation method
     const sand_PerSqFt = 0.45;       // 
     const bricksPerSqFt = 8;         // bricks per square foot
     const cementBagsPerSqFt = 0.05;  // cement bags per square foot
@@ -47,39 +47,37 @@ document.addEventListener("DOMContentLoaded", function(){
     const plumbingCostPerSqFt = 150; // PKR per square foot (example)
     const labourPerSqft = 140;
 
-    // Calculations
-    const bricks = Math.round(area * bricksPerSqFt);
-    const cementBags = (area * cementBagsPerSqFt).toFixed(2);
+    // Calculating qunatities (bricks, cementbags, sand costs, crushcosts, plumbingcosts, bbrick)
+    const bricks_quantity = Math.round(area * bricksPerSqFt);
+    const cement_quantity = (area * cementBagsPerSqFt).toFixed(2);
 
-    const sandCft = (area * sandCftPerSqFt).toFixed(2);
-    const crushCft = (area * crushCftPerSqFt).toFixed(2);
-    const plumbingCosts = (area * plumbingCostPerSqFt).toFixed(2);
-    const labourCosts = (area * labourPerSqft).toFixed(2);
-    document.getElementById("cement_used").innerText = "Cement bags : " + cementBags;
-    document.getElementById("sand_used").innerText = "Sand cft : "+ sandCft;
-    console.log(document.getElementById("sand_used").innerText);
-    document.getElementById("crush_used").innerText = "No of bricks : "+ bricks;
-    document.getElementById("bricks_shown").innerText =  bricks + " PKR";
-    document.getElementById("labour_used").innerText =  labourCosts+ " PKR"
+    const sand_quantity = (area * sandCftPerSqFt).toFixed(2);
+    const crush_quantity = (area * crushCftPerSqFt).toFixed(2);
     
+    
+    const plumbing_costs = (area * plumbingCostPerSqFt).toFixed(2);
+    const labour_costs = (area * labourPerSqft).toFixed(2);
+
+
+
+
+
+
+
+    document.getElementById("cement_used").innerText = "Cement bags : " + cement_quantity;
+    document.getElementById("sand_used").innerText = "Sand cft : "+ sand_quantity;
+    document.getElementById("crush_used").innerText = "No of bricks : "+ bricks_quantity;
+    document.getElementById("bricks_shown").innerText =  bricks + " PKR";
+    document.getElementById("labour_used").innerText =  labour_costs+ " PKR";
+    
+
     document.getElementById("sand_price_shown").innerText = sand_ind +" PKR";
     document.getElementById("cement_price_shown").innerText = cement_ind+ " PKR";
-    document.getElementById("labour_used").innerTEXT = labourCosts;
+    document.getElementById("labour_used").innerTEXT = labour_costs;
 
-    if (choice == 'industory'){
-
-    
     }
-
-
-            console.log(cementBags);
-            console.log(sandCft);
-            console.log(crushCft);
-            console.log(plumbingCosts);  
-
-}
        
     )
 
-    window.items = ["window", crushCft];
+    window.items = ["window", crushCosts];
     console.log("Script loaded sucessfully!");
