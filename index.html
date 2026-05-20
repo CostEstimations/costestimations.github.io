@@ -29,15 +29,14 @@
                   <form action="login.html" method="get" id="form" onsubmit="return handleSubmit(event)">                
                     <label for="Area">Area (sqft)</label>
                     <input type="number" name="area" class="form-control" id="area" placeholder="Area" required><br>
-                    <label for="floors">No of floors</label>
-                    <input type="number" name="floors" class="form-control" id="totalFloors" placeholder="Floors"><br>
+                    <label for="CoveredArea">Covered Area</label>
+                    <input type="number" name="coveredArea" class="form-control" id="coveredArea" placeholder="Area of construction"><br>
 
-                    <label for="footings">Number of footings</label>
+                    <!-- <label for="footings">Number of footings</label>
                     <input type="number" name="footings" class="form-control" id="totalFooting" placeholder="Foundation pillers" value="4"><br>
-
-                    <label for="depth">Footing Depth</label>
-                    <input type="number" name="depth" class="form-control" id="depth" placeholder="depth in feet" value=""><br>
-
+ -->
+                    <label for="trenchLength">Trench Length</label>
+                    <input type="number" name="trenchLength" class="form-control" id="depth" placeholder="Excivation length" value=""><br>
 
                     <h3 class="card-title text-left mb-3">How do you want to use it?</h3>
                     <input type="radio" name="userChoice" value="industory" onchange="showFormChange()" checked>
@@ -81,8 +80,8 @@
     event.preventDefault();
 
     localStorage.setItem("area", event.target.area.value);
-    localStorage.setItem("floors", event.target.floors.value);
-    localStorage.setItem("footings", event.target.footings.value);
+    localStorage.setItem("coveredArea", event.target.coveredArea.value);
+    localStorage.setItem("trenchLength", event.target.trenchLength.value);
 
     // GET AND SAVE THE CHOICE HERE
     const selectedChoice = document.querySelector('input[name="userChoice"]:checked').value;

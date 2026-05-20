@@ -117,6 +117,10 @@
     opacity: 0; }
   100% {
     opacity: 1; } }
+/* Option 2: Target the wrapper
+.container-scroller, .page-body-wrapper {
+  background-color: #f0f8ff !important;
+} */
 
 @-webkit-keyframes flash {
   0% {
